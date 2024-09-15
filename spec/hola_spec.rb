@@ -12,4 +12,8 @@ RSpec.describe Hola do
   it "says hello in Spanish" do
     expect(Hola.hi("spanish")).to eq("hola mundo")
   end
+
+  it "greets a person using Ractor" do
+    expect(Hola.greet(name: "Alice")).to eq("hello world, Alice!")
+  end
 end

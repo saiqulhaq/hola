@@ -10,4 +10,19 @@ module Hola
     translator = Translator.new(language)
     translator.hi
   end
+
+  def self.greet(name:, language: "english")
+    translator = Translator.new(language)
+    greeting = translator.hi
+
+    if RUBY_VERSION >= "3.0.0" && defined?(Ractor)
+      Ractor.new(greeting, name) do |greeting, name|
+        "#{greeting}, #{name}!"
+      end.take
+    else
+      Thread.new(greeting, name) do |greeting, name|
+        "#{greeting}, #{name}!"
+      end.value
+    end
+  end
 end
