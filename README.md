@@ -1,34 +1,48 @@
 # Hola
 
-TODO: Delete this and the text below, and describe your gem
+Welcome to Hola, a sample gem demonstrating the usage of Gemdock for Ruby gem development!
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hola`. To experiment with that code, run `bin/console` for an interactive prompt.
+## About Gemdock
 
-## Installation
+Gemdock is a powerful tool that simplifies Ruby gem development by providing a containerized environment. It allows developers to easily switch between different Ruby versions and manage dependencies without affecting their local system.
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+## Gemdock Usage
 
-Install the gem and add to the application's Gemfile by executing:
+This gem is not published in RubyGems.org. It's intended to demonstrate local gem development using Gemdock. Here's how to use Gemdock with this project:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+1. **Initialize Gemdock:**
+   ```
+   gemdock init 2.7
+   ```
+   This sets up the necessary configuration for Ruby 2.7.
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+2. **Provision the environment:**
+   ```
+   gemdock provision
+   ```
+   This command sets up the Docker environment with the specified Ruby version and installs dependencies.
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+3. **Run RSpec tests:**
+   ```
+   gemdock run rspec
+   ```
+   This runs the RSpec tests in the Gemdock environment.
 
-## Usage
-
-TODO: Write usage instructions here
+4. **Switch Ruby versions:**
+   To test with a different Ruby version (e.g., 3.0), use:
+   ```
+   gemdock update 3.0
+   gemdock provision
+   gemdock run rspec
+   ```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `gemdock provision` to install dependencies. You can run `gemdock run bash` to log in to the Docker container shell, which will allow you to experiment.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/saiqulhaq/hola. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/saiqulhaq/hola/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hola. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hola/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -36,4 +50,9 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Hola project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/saiqulhaq/hola/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Hola project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/hola/blob/main/CODE_OF_CONDUCT.md).
+
+## Learn More
+
+For a detailed tutorial on using Gemdock for gem development, please visit:
+[Gem Development with Gemdock Example](https://github.com/saiqulhaq/gemdock/blob/main/docs/gem-development-with-gemdoc-example.md)
